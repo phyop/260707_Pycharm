@@ -19,13 +19,15 @@
 
 **Secondary keywords:** `DirectoryLock$CannotActivateException`, PyCharm `.port` file, PyCharm missing Conda interpreter, `jdk.table.xml`, CodeGlancePro minimap, JetBrains backup restore
 
-## Article
+## Opening
 
 PyCharm did not break in one clean way. It failed in layers.
 
 At first, it looked like a normal startup issue: PyCharm claimed another instance was still running. Once that was fixed, a second problem appeared: every configured Python interpreter had disappeared. After I restored the interpreters, a third issue surfaced: the editor minimap beside the right scrollbar was gone.
 
 That sequence mattered. If I had treated all three symptoms as one problem, I probably would have reinstalled PyCharm, recreated environments, and lost time rebuilding a setup that mostly still existed. The real recovery came from separating the lock problem from the interpreter problem, then separating both of those from the missing CodeGlancePro plugin state.
+
+## Background
 
 ![PyCharm recovery map](assets/pycharm-recovery-map.png)
 
@@ -122,6 +124,8 @@ NoSuchFileException:
 ```
 
 That gave me the second root-cause distinction. `.lock` was not the live blocker; `.port` was. The reset marker had been a recovery-state symptom, and `.lock` was reported missing, but `.port` was the file PyCharm could not access during startup.
+
+## Debug Process
 
 The startup fix was simple once the distinction was clear:
 
@@ -293,6 +297,8 @@ Looking back, the tempting shortcut would have been to treat the IDE as corrupte
 
 The safest pattern was to make one change, restart, and observe the next symptom. Removing `migrate.config` answered the reset problem. Removing `.port` answered the startup problem. Restoring `jdk.table.xml` answered the global interpreter problem. Editing `.idea\misc.xml` answered the project interpreter problem. Restoring CodeGlancePro answered the minimap problem. When `.port` returned, it was not new evidence against the interpreter or plugin fixes; it was the same startup-lock layer reappearing after another failed launch.
 
+## Solution
+
 The sequence that actually worked was not dramatic:
 
 1. Do not reinstall PyCharm immediately.
@@ -319,7 +325,11 @@ Editor minimap visible again
 Stale .port startup lock cleared
 ```
 
+## Lessons Learned and Pitfalls
+
 The practical lesson is that IDE recovery is not only about deleting caches or reinstalling the application. In this case, each layer had a different meaning. `DirectoryLock$CannotActivateException` did not prove there was a visible process to kill. `migrate.config` showed a dirty reset state, but `.port` was the live startup blocker. The missing interpreters were not missing Conda environments; PyCharm had lost its global interpreter definitions. The missing minimap was not a removed IDE feature; it was CodeGlancePro and its options missing from the restored settings.
+
+## Conclusion
 
 The fix came from respecting those boundaries and restoring only the pieces that matched the symptom.
 
