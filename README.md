@@ -468,6 +468,10 @@ Stale .port startup lock cleared
 This was a reminder that IDE recovery is not just about deleting caches. The useful work is identifying which error is a symptom, which file is the blocker, and which parts of the old configuration are worth restoring.
 
 
+## Related Publication
+
+- [Debugging PyCharm Startup Locks, Missing Conda Interpreters, and a Vanished CodeGlancePro Minimap on Windows](https://medium.com/@seek1andfind2/debugging-pycharm-startup-locks-missing-conda-interpreters-and-a-vanished-codeglancepro-minimap-7c60a6ced02d)
+
 ## Future Improvements
 
 - Turn the PowerShell checks into a single `Recover-PyCharm.ps1` runbook with dry-run mode
