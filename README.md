@@ -470,7 +470,7 @@ This was a reminder that IDE recovery is not just about deleting caches. The use
 
 ## Related Publication
 
-- [Debugging PyCharm Startup Locks, Missing Conda Interpreters, and a Vanished CodeGlancePro Minimap on Windows](https://medium.com/@seek1andfind2/debugging-pycharm-startup-locks-missing-conda-interpreters-and-a-vanished-codeglancepro-minimap-7c60a6ced02d)
+- [Debugging PyCharm Startup Locks, Missing Conda Interpreters, and a Vanished CodeGlancePro Minimap on Windows](https://medium.com/@seek1andfind2/debugging-pycharm-startup-locks-missing-conda-interpreters-and-a-vanished-codeglancepro-minimap-23eb30ce1956)
 
 ## Future Improvements
 
