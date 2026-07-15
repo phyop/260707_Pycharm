@@ -64,7 +64,7 @@ flowchart TD
 ## Folder Structure
 
 ```text
-260707_Pycharm/
+Pycharm/
 ├── README.md
 ├── medium-pycharm-debugging-article.md
 ├── docs/
