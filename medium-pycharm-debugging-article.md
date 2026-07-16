@@ -1,26 +1,5 @@
 # Debugging PyCharm Startup Locks, Missing Conda Interpreters, and a Vanished CodeGlancePro Minimap on Windows
 
-## Alternate Titles
-
-1. When PyCharm Would Not Start: Fixing `.port`, Restoring Conda, and Recovering CodeGlancePro
-2. PyCharm Said Another Instance Was Running. The Real Problem Was a Stale `.port` File
-3. Recovering PyCharm on Windows After Startup Locks, Lost Interpreters, and Missing Plugins
-4. How I Restored PyCharm Without Reinstalling: DirectoryLock, `jdk.table.xml`, and CodeGlancePro
-5. The PyCharm Recovery Trail: From `CannotActivateException` to a Restored Conda Interpreter
-6. Debugging a Broken PyCharm Configuration: Lock Files, Backups, and the Missing Minimap
-
-## SEO
-
-**Meta description:** A chronological Windows PyCharm recovery story covering `DirectoryLock$CannotActivateException`, stale `.port` files, `migrate.config`, missing Conda interpreters, `jdk.table.xml`, `.idea\misc.xml`, and CodeGlancePro restoration.
-
-**Suggested slug:** `pycharm-windows-startup-lock-conda-codeglancepro-recovery`
-
-**Primary keyword:** PyCharm startup lock Windows
-
-**Secondary keywords:** `DirectoryLock$CannotActivateException`, PyCharm `.port` file, PyCharm missing Conda interpreter, `jdk.table.xml`, CodeGlancePro minimap, JetBrains backup restore
-
-## Opening
-
 PyCharm did not break in one clean way. It failed in layers.
 
 At first, it looked like a normal startup issue: PyCharm claimed another instance was still running. Once that was fixed, a second problem appeared: every configured Python interpreter had disappeared. After I restored the interpreters, a third issue surfaced: the editor minimap beside the right scrollbar was gone.
@@ -332,7 +311,3 @@ The practical lesson is that IDE recovery is not only about deleting caches or r
 ## Conclusion
 
 The fix came from respecting those boundaries and restoring only the pieces that matched the symptom.
-
-## Tags
-
-PyCharm, JetBrains, Windows, Python, Conda, Debugging, PowerShell, CodeGlancePro, Developer Tools, IDE Recovery
